@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import gfImage from '../assets/gf.png'
 
-export default function Grandfather({ next, back }) {
+export default function HomeSafePlace({ next, back, stopGfMusic }) {
   return (
     <section className="grandfather-section">
       <motion.div
