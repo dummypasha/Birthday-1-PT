@@ -49,7 +49,15 @@ export default function Grandfather({ next, back }) {
 
         {/* Navigation */}
         <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '40px' }}>
-          <button onClick={back}>← Back</button>
+          <button
+            onClick={() => {
+              stopGfMusic() // ✅ THIS is the fix
+              back()
+            }}
+          >
+            ← Back
+          </button>
+
           <button onClick={next}>A letter →</button>
         </div>
       </motion.div>
