@@ -1,26 +1,21 @@
 import { motion } from 'framer-motion'
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 
 export default function Intro({ next, startMusic }) {
   const [revealed, setRevealed] = useState(false)
-  const musicStarted = useRef(false)
+  const [musicOn, setMusicOn] = useState(false)
 
   const handleReveal = () => {
-    if (!revealed) {
-      setRevealed(true)
-    }
+    if (!revealed) setRevealed(true)
   }
 
-  const startMusicOnce = () => {
-    if (!musicStarted.current) {
-      startMusic()            // 🎵 starts music
-      musicStarted.current = true
-    }
+  const handlePlayMusic = () => {
+    startMusic()          // ✅ guaranteed on all devices
+    setMusicOn(true)
   }
 
   return (
     <section className="intro-section">
-      {/* Floating stars */}
       <div className="stars">
         <span></span><span></span><span></span>
         <span></span><span></span><span></span>
@@ -31,9 +26,6 @@ export default function Intro({ next, startMusic }) {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 2 }}
-
-        /* 🔑 BOTH events — this is the fix */
-        onPointerDown={startMusicOnce}
         onClick={handleReveal}
       >
         <h1>This is for you.</h1>
@@ -52,7 +44,20 @@ export default function Intro({ next, startMusic }) {
               A small journey through your strength and kindness.
             </motion.p>
 
-            <button onClick={next}>Begin →</button>
+            {!musicOn && (
+              <button
+                onClick={handlePlayMusic}
+                style={{ marginTop: '18px' }}
+              >
+                Tap here
+              </button>
+            )}
+
+            {musicOn && (
+              <button onClick={next} style={{ marginTop: '18px' }}>
+                Begin →
+              </button>
+            )}
           </>
         )}
       </motion.div>
