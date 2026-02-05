@@ -1,19 +1,21 @@
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 
 export default function Intro({ next, startMusic }) {
   const [revealed, setRevealed] = useState(false)
+  const musicStarted = useRef(false)
 
   const handleReveal = () => {
     if (!revealed) {
-      startMusic()   // 🎵 guaranteed gesture
       setRevealed(true)
     }
   }
 
-  const handleBegin = (e) => {
-    e.stopPropagation()
-    next()
+  const startMusicOnce = () => {
+    if (!musicStarted.current) {
+      startMusic()            // 🎵 starts music
+      musicStarted.current = true
+    }
   }
 
   return (
@@ -30,8 +32,9 @@ export default function Intro({ next, startMusic }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 2 }}
 
-        // 🔥 IMPORTANT CHANGE
-        onPointerDown={handleReveal}
+        /* 🔑 BOTH events — this is the fix */
+        onPointerDown={startMusicOnce}
+        onClick={handleReveal}
       >
         <h1>This is for you.</h1>
 
@@ -49,7 +52,7 @@ export default function Intro({ next, startMusic }) {
               A small journey through your strength and kindness.
             </motion.p>
 
-            <button onClick={handleBegin}>Begin →</button>
+            <button onClick={next}>Begin →</button>
           </>
         )}
       </motion.div>
