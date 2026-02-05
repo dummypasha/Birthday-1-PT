@@ -1,0 +1,643 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #111, #000);
+  color: #f4f4f4;
+  font-family: 'Playfair Display', serif;
+}
+
+section {
+  min-height: 100vh;
+  padding: 60px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.container {
+  max-width: 900px;
+  width: 100%;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+}
+
+p {
+  font-size: clamp(1rem, 4vw, 1.2rem);
+  line-height: 1.7;
+}
+
+.letter {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.4rem, 5vw, 1.9rem);
+}
+
+button {
+  margin-top: 36px;
+  padding: 14px 34px;
+  border-radius: 30px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+.photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo img {
+  width: 100%;
+  max-width: 220px;
+  border-radius: 16px;
+}
+
+.caption {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.timeline {
+  text-align: left;
+}
+
+.timeline-item {
+  margin: 20px 0;
+  border-left: 2px solid #888;
+  padding-left: 20px;
+}
+
+audio {
+  margin-top: 24px;
+  width: 100%;
+  max-width: 320px;
+}
+
+/* =========================
+   INTRO SECTION ONLY
+   ========================= */
+
+.intro-section {
+  background: linear-gradient(
+    135deg,
+    #f6d1e7 0%,
+    #e3c1f5 45%,
+    #c9b6ff 100%
+  );
+}
+
+.intro-card {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(14px);
+  border-radius: 26px;
+  padding: 70px 30px;
+
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+}
+
+/* Intro text colors */
+.intro-section h1 {
+  color: #2b1c3d;
+}
+
+.intro-section p {
+  color: #4b3b63;
+}
+
+/* Intro button */
+.intro-section button {
+  background: #ffffff;
+  color: #2b1c3d;
+}
+
+.intro-section button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================
+   FLOATING STARS (INTRO)
+   ========================= */
+
+.stars {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.stars span {
+  position: absolute;
+  bottom: -20px;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  animation: floatUp 18s linear infinite;
+}
+
+/* Different positions & delays */
+.stars span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.stars span:nth-child(2) { left: 25%; animation-delay: 4s; }
+.stars span:nth-child(3) { left: 40%; animation-delay: 8s; }
+.stars span:nth-child(4) { left: 60%; animation-delay: 2s; }
+.stars span:nth-child(5) { left: 75%; animation-delay: 6s; }
+.stars span:nth-child(6) { left: 90%; animation-delay: 10s; }
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  to {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
+}
+
+/* Ensure card stays above stars */
+.intro-card {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================
+   FLOATING STARS (VISIBLE)
+   ========================= */
+
+.stars {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.stars span {
+  position: absolute;
+  bottom: -20px;
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+  animation: floatUp 20s linear infinite;
+}
+
+/* Spread stars across screen */
+.stars span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.stars span:nth-child(2) { left: 25%; animation-delay: 3s; }
+.stars span:nth-child(3) { left: 40%; animation-delay: 6s; }
+.stars span:nth-child(4) { left: 55%; animation-delay: 9s; }
+.stars span:nth-child(5) { left: 70%; animation-delay: 12s; }
+.stars span:nth-child(6) { left: 85%; animation-delay: 15s; }
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
+
+/* Ensure card is ABOVE stars */
+.intro-card {
+  position: relative;
+  z-index: 2;
+}
+
+/* Click hint text */
+.tap-text {
+  margin-top: 16px;
+  font-size: 1rem;
+  opacity: 0.8;
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+  100% { opacity: 0.4; }
+}
+
+/* Cursor hint */
+.intro-click-card {
+  cursor: pointer;
+}
+
+/* =========================
+   GALLERY BACKGROUND
+   ========================= */
+
+.gallery-section {
+  background: linear-gradient(
+    135deg,
+    #f6d1e7,
+    #e6d9ff,
+    #fdf1ff
+  );
+  color: #2b1c3d;
+}
+
+/* =========================
+   GALLERY GRID
+   ========================= */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin: 50px 0;
+}
+
+/* =========================
+   PHOTO CARD FLIP
+   ========================= */
+
+.photo-card {
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.photo-inner {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+}
+
+.photo-card.flipped .photo-inner {
+  transform: rotateY(180deg);
+}
+
+.photo-front,
+.photo-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* Front */
+.photo-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+/* Back */
+.photo-back {
+  background: rgba(255,255,255,0.9);
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-family: 'Dancing Script', cursive;
+}
+
+/* Button tweak */
+.gallery-section button {
+  background: #fff;
+  color: #2b1c3d;
+}
+
+.photo-back p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #3a2a4d;
+  text-align: center;
+}
+
+.photo-back span {
+  display: block;
+}
+
+.photo-back em {
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* =================================================
+   GALLERY PAGE ONLY (SCOPED – SAFE)
+   ================================================= */
+
+.gallery-section .photo-back {
+  background: linear-gradient(
+    135deg,
+    #fde2f3,
+    #e6d9ff
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+/* Cute, readable text (gallery only) */
+.gallery-section .gallery-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #4b2b63;
+  font-weight: 500;
+  z-index: 2;
+}
+
+.gallery-section .gallery-text span {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.gallery-section .gallery-text em {
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* =========================
+   Sparkles – Gallery only
+   ========================= */
+
+.gallery-section .gallery-sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gallery-section .gallery-sparkles span {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 50%;
+  animation: galleryFloatStar 6s infinite ease-in-out;
+}
+
+.gallery-section .gallery-sparkles span:nth-child(1) {
+  top: 20%;
+  left: 30%;
+  animation-delay: 0s;
+}
+
+.gallery-section .gallery-sparkles span:nth-child(2) {
+  top: 60%;
+  left: 70%;
+  animation-delay: 1.5s;
+}
+
+.gallery-section .gallery-sparkles span:nth-child(3) {
+  top: 40%;
+  left: 50%;
+  animation-delay: 3s;
+}
+
+.gallery-section .gallery-sparkles span:nth-child(4) {
+  top: 70%;
+  left: 20%;
+  animation-delay: 4.5s;
+}
+
+@keyframes galleryFloatStar {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-10px) scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0.4;
+  }
+}
+
+/* Cute hint text – gallery only */
+.gallery-section .gallery-hint {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  color: #6a4b8c;
+  opacity: 0.85;
+  animation: galleryHintPulse 2s infinite;
+}
+
+@keyframes galleryHintPulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+  100% { opacity: 0.4; }
+}
+
+/* =========================
+   GRANDFATHER PAGE ONLY
+   ========================= */
+
+.grandfather-section {
+  background: linear-gradient(
+    135deg,
+    #fbe7d3,
+    #f6d6c9,
+    #f0cfc0
+  );
+  color: #4a2f24;
+}
+
+.grandfather-card {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(10px);
+  border-radius: 28px;
+  padding: 70px 32px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Text styling for emotional tone */
+.grandfather-section h1 {
+  color: #3a2318;
+}
+
+.grandfather-section p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-top: 18px;
+  color: #5a3b2e;
+}
+
+/* Button */
+.grandfather-section button {
+  background: #ffffff;
+  color: #3a2318;
+}
+
+.grandfather-section button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   GRANDFATHER PAGE ONLY
+   ========================= */
+
+.grandfather-section {
+  background: linear-gradient(
+    135deg,
+    #fbe8d8,
+    #f3d7c6,
+    #edd0b8
+  );
+  color: #4a2f24;
+}
+
+.grandfather-card {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(12px);
+  border-radius: 30px;
+  padding: 60px 32px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.18);
+}
+
+/* Heading */
+.grandfather-section h1 {
+  color: #3a2318;
+  margin-bottom: 24px;
+}
+
+/* Text */
+.grandfather-section p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  margin-top: 18px;
+  color: #5a3b2e;
+}
+
+/* Image styling */
+.grandfather-image {
+  margin: 30px auto 20px;
+  max-width: 320px;
+}
+
+.grandfather-image img {
+  width: 100%;
+  border-radius: 22px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+/* Button */
+.grandfather-section button {
+  background: #ffffff;
+  color: #3a2318;
+}
+
+.grandfather-section button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
+
+
+/* =========================
+   MESSAGE / LETTER PAGE ONLY
+   ========================= */
+
+.letter {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Letter heading */
+.letter h1 {
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+/* Letter text */
+.letter p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-top: 18px;
+  font-weight: 400;
+  color: #f0f0f0;
+}
+
+/* =========================
+   FINALE PAGE ONLY
+   ========================= */
+
+.finale-section {
+  background: radial-gradient(
+    circle at top,
+    #f8dff0,
+    #e8d9ff,
+    #dbe7ff
+  );
+  color: #3a2b4d;
+}
+
+.finale-card {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(14px);
+  border-radius: 30px;
+  padding: 70px 32px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+}
+
+/* Circular image */
+.finale-image {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  border: 5px solid rgba(255,255,255,0.8);
+}
+
+.finale-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Heading */
+.finale-section h1 {
+  font-size: clamp(2rem, 6vw, 2.6rem);
+  margin-bottom: 18px;
+  color: #2b1c3d;
+}
+
+/* Text */
+.finale-section p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-top: 14px;
+  color: #4b3b63;
+}
+
+/* Final note */
+.finale-section .final-note {
+  margin-top: 22px;
+  font-weight: 500;
+  color: #6a4b8c;
+}
