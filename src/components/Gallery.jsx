@@ -36,8 +36,7 @@ const photos = [
         <span>Thanks for clicking this✨ moment 🎬</span>
         <span>
           It was a cute moment.  
-          I hope you remembered it —  
-          a very special memory 🤍
+          I hope you remembered it — 🤍
         </span>
       </>
     )
