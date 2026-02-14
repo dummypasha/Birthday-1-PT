@@ -28,57 +28,62 @@ const photos = [
       </>
     )
   },
+
   {
-    img: img3,
-    text: (
-      <>
-        <span>Heyyy… first of all, I’m really proud of you 🤍✨</span>
-        <span>
-          The way you care for your friends and your closed ones is honestly the cutest thing ever.
-          Ni innocence lo oka chinna magic untundi… that’s rare.
-        </span>
-        <span>
-          The way you respect your family, the way you value their feelings —
-          that shows how strong and grounded you are and you’re always mindful not to hurt them,
-        </span>
-        <span>
-          You know exactly how to behave in every situation —
-          classy when needed, fun when it’s light, mature when it matters.
-        </span>
-        <span>
-          You’re hardworking, independent, and building your own path.
-          But what makes you even more special is your dhairyam —
-          that quiet courage you carry inside.
-        </span>
-        <span>
-          Now that you’re in the US, building your life on your own,
-          standing on your own feet — that independence honestly looks really good on you.
-        </span>
-        <span>
-          Even when things are tough, you don’t run away.
-          You face it. Calmly and Strongly.
-        </span>
-        <span>
-          You fall, you overthink, you feel deeply —
-          but you always rise again. That resilience? Queen energy 👑
-        </span>
-        <span>
-          Being around you feels peaceful, safe, and positive for whoever it is.
-          Soft heart + strong mindset combo… very rare.
-        </span>
-        <span>
-          Just stay the same, okay?
-          That soft heart + strong mindset + fearless dhairyam combo… it’s something really special 🤍✨
-        </span>
-      </>
-    )
-  },
+  img: img3,
+  text: (
+    <>
+      <span>Heyyy… first of all, I’m really proud of you 🤍✨</span>
+      <span>
+        The way you care for your friends is honestly the cutest thing ever.
+        Ni innocence lo oka chinna magic untundi… that’s rare.
+      </span>
+      <span>
+        The respect you give your family, the way you value their feelings —
+        that shows how strong and grounded you are and You’re always mindful not to hurt them,
+      </span>
+      <span>
+        You know exactly how to behave in every situation —
+        classy when needed, fun when it’s light, mature when it matters.
+      </span>
+      <span>
+        You’re hardworking, independent, and building your own path.
+        But what makes you even more special is your dhairyam —
+        that quiet courage you carry inside.
+      </span>
+      <span>
+       Now that you’re in the US, building your life on your own,
+       standing on your own feet — that independence honestly looks really good on you.
+      </span>
+      <span>
+        Even when things are tough, you don’t run away.
+        You face it. Calmly and Strongly.
+      </span>
+      <span>
+        You fall, you overthink, you feel deeply —
+        but you always rise again. That resilience? Queen energy 👑
+      </span>
+      <span>
+        Being around you feels peaceful, safe, and positive.
+        Soft heart + strong mindset combo… very rare.
+      </span>
+      <span>
+        Just stay the same, okay?
+That soft heart + strong mindset + fearless dhairyam combo… it’s something really special 🤍✨
+      </span>
+    </>
+  )
+},
+
+
+ 
   {
     img: img4,
     text: (
       <>
         <span>Thanks for clicking this✨ moment 🎬</span>
         <span>
+          
           I hope you remembered it — 🤍
         </span>
       </>
@@ -130,21 +135,9 @@ export default function Gallery({ next, back }) {
   }
 
   return (
-    <section
-      className="gallery-section"
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "60px 16px",
-        boxSizing: "border-box",
-        overflow: "hidden"
-      }}
-    >
+    <section className="gallery-section">
       <motion.div
         className="container"
-        style={{ width: "100%", maxWidth: "1000px" }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5 }}
@@ -161,27 +154,13 @@ export default function Gallery({ next, back }) {
               key={index}
               className={`photo-card ${flipped === index ? 'flipped' : ''}`}
               onClick={() => handleFlip(index)}
-              style={{ cursor: "pointer" }}
             >
-              <div
-                className="photo-inner"
-                style={{
-                  height: "320px"
-                }}
-              >
+              <div className="photo-inner">
                 <div className="photo-front">
                   <img src={item.img} alt="memory" />
                 </div>
 
-                <div
-                  className="photo-back"
-                  style={{
-                    overflowY: "auto",
-                    alignItems: "flex-start",
-                    justifyContent: "flex-start",
-                    padding: "20px"
-                  }}
-                >
+                <div className="photo-back">
                   <div className="gallery-sparkles">
                     <span></span>
                     <span></span>
@@ -189,28 +168,15 @@ export default function Gallery({ next, back }) {
                     <span></span>
                   </div>
 
-                  <div
-                    className="gallery-text"
-                    style={{
-                      position: "relative",
-                      zIndex: 2
-                    }}
-                  >
-                    {item.text}
-                  </div>
+                  <p className="gallery-text">{item.text}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            marginTop: '40px'
-          }}
-        >
+        {/* Navigation */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '40px' }}>
           <button onClick={handleBack}>← Back</button>
           <button onClick={handleNext}>NEXT →</button>
         </div>
