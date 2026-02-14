@@ -258,6 +258,21 @@ audio {
     #fdf1ff
   );
   color: #2b1c3d;
+  position: relative;
+}
+
+/* 🔥 FIX ADDED HERE */
+.gallery-section::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    #f6d1e7,
+    #e6d9ff,
+    #fdf1ff
+  );
+  z-index: -1;
 }
 
 /* =========================
