@@ -35,12 +35,12 @@ const photos = [
     <>
       <span>Heyyy… first of all, I’m really proud of you 🤍✨</span>
       <span>
-        The way you care for your friends is honestly the cutest thing ever.
+        The way you care for your friends and your close people is honestly the cutest thing ever.
         Ni innocence lo oka chinna magic untundi… that’s rare.
       </span>
       <span>
-        The respect you give your family, the way you value their feelings —
-        that shows how strong and grounded you are and You’re always mindful not to hurt them,
+        The way you respect your family, the way you value their feelings —
+        that shows how strong and grounded you are and you’re always mindful not to hurt them,
       </span>
       <span>
         You know exactly how to behave in every situation —
@@ -64,12 +64,12 @@ const photos = [
         but you always rise again. That resilience? Queen energy 👑
       </span>
       <span>
-        Being around you feels peaceful, safe, and positive.
-        Soft heart + strong mindset combo… very rare.
+        Being around you feels peaceful, safe, and positive for whoever it is.
+        Soft heart + strong mindset.
       </span>
       <span>
         Just stay the same, okay?
-That soft heart + strong mindset + fearless dhairyam combo… it’s something really special 🤍✨
+        That soft heart + strong mindset + innocence + fearless dhairyam combo… it’s something really special 🤍✨
       </span>
     </>
   )
